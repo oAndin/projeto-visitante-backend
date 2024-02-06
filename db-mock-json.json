@@ -1,4 +1,13 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "name": "Admin",
+      "email": "",
+      "password": "admin",
+      "user-level": 2
+    }
+  ],
   "visitantes": [
     {
       "id": 1,
@@ -199,7 +208,8 @@
       "cep": "54321-876",
       "city": "São Paulo",
       "district": "Jardins"
-    },{
+    },
+    {
       "id": 21,
       "cpf": "212.121.212-21",
       "name": "Henrique Oliveira",

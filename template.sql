@@ -13,7 +13,7 @@ CREATE TABLE `visitante` (
 CREATE TABLE `usuario` (
 	`usuario_id` INT NOT NULL AUTO_INCREMENT,
 	`usuario_email` varchar(50) NOT NULL,
-	`usuario_senha` varchar(50) NOT NULL,
+	`usuario_senha` varchar(255) NOT NULL,
 	`usuario_token` varchar(255),
 	PRIMARY KEY (`usuario_id`)
 );
