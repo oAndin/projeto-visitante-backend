@@ -9,6 +9,8 @@ const port = 8000;
 app.use(express.json());
 app.use(cors());
 
+const visitanteRoutes = require("./src/routes/visitanteRoutes");
+
 // const server = http.createServer((req, res) => {
 //   console.log(`Server is running at port ${port} and ${url}`);
 //   const pathName = req.url;
