@@ -12,7 +12,7 @@ router.post("/visitantes", async (req, res) => {
   return res.send(await controller.create(req.body));
 });
 
-router.login("/users", async (req, res) => {
+router.post("/users", async (req, res) => {
   return res.send(await controller.login(req.body));
 });
 

@@ -26,7 +26,6 @@ app.get("/", (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  
   return res.send('Hello World');
 });
 // Query params' -> Params that are sent in the URL
