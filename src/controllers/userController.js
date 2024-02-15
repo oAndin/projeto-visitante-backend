@@ -1,12 +1,12 @@
 const DB = require("../database/index");
 
-const table = "users";
+const table = "usuario";
 
 const jwt = require("jsonwebtoken");
 
 async function listAll() {
   try {
-    const users = await DB.execute(`SELECT * FROM ${table}`);
+    const users = await DB.executeSql(`SELECT * FROM ${table}`);
     return users;
   } catch (error) {
     return { message: error.message };
@@ -16,7 +16,7 @@ async function listAll() {
 
 async function login(data) {
   try {
-    if (!data.user.name || data.user.email === "") {
+    if (!data.user.email || data.user.email === "") {
       throw new Error("Name is required");
     }
     if (!data.user.senha || data.user.senha === "") {
@@ -51,6 +51,5 @@ async function login(data) {
 }
 module.exports = {
   listAll,
-  create,
-  login,
+  login
 };

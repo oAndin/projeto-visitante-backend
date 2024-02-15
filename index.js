@@ -10,6 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 const visitanteRoutes = require("./src/routes/visitanteRoutes");
+const userRoutes = require("./src/routes/userRoutes");
 
 // const server = http.createServer((req, res) => {
 //   console.log(`Server is running at port ${port} and ${url}`);
@@ -28,6 +29,8 @@ app.get("/", (req, res) => {
 app.get('/', (req, res) => {
   return res.send('Hello World');
 });
+
+app.use('/users', userRoutes);
 // Query params' -> Params that are sent in the URL
 app.get('/test', (req, res) => {
   const name = req.query.name;
