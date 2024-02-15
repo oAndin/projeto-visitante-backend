@@ -9,6 +9,13 @@ const port = 8000;
 app.use(cors());
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  return res.send('Hello World');
+});
+app.get('/test', (req, res) => {
+  return res.send('Acess granted');
+});
+
 app.all("*", (req, res) => {
   return res.send(
     JSON.stringify({

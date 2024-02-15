@@ -79,7 +79,9 @@ async function login(data) {
     }
 
     // bycrypt compare 
-    const response = await 
+    
+
+  //   const response = await 
   } catch (error) {
     message: error.message;
   }
