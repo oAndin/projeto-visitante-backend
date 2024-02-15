@@ -2,6 +2,8 @@ const DB = require("../database/index");
 
 const table = "users";
 
+const jwt = require("jsonwebtoken");
+
 async function listAll() {
   try {
     const users = await DB.execute(`SELECT * FROM ${table}`);
@@ -10,7 +12,6 @@ async function listAll() {
     return { message: error.message };
   }
 }
-
 async function create(data) {
   // name, password == cpf, profession, gender, age, cep, city, distric
   try {
@@ -78,11 +79,29 @@ async function login(data) {
       throw new Error("User or password is incorrect");
     }
 
-    // bycrypt compare 
-    
-
-  //   const response = await 
+    const response = "response";
+    // const responde = await bycrypt.compare(data.user.cpf, result[0].user_cpf);
+    if (response) {
+      const token = jwt.sign(
+        {},
+        {
+          expiresIn: "1h",
+        }
+      );
+      await DB.execute(
+        `UPDATE ${table} SET token = '${token}' WHERE user_cpf = '${data.user.cpf};`
+      );
+      return { token };
+    }
+    // bycrypt compare
+    // const response = await
   } catch (error) {
     message: error.message;
   }
 }
+
+module.exports = {
+  listAll,
+  create,
+  login,
+};
