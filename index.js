@@ -29,8 +29,6 @@ app.get("/", (req, res) => {
 app.get('/', (req, res) => {
   return res.send('Hello World');
 });
-
-app.use('/users', userRoutes);
 // Query params' -> Params that are sent in the URL
 app.get('/test', (req, res) => {
   const name = req.query.name;
@@ -45,6 +43,9 @@ app.get('/test/:name', (req, res) => {
   const name = req.params.name;
   return res.json(`Requisition ${name} received`);
 });
+
+app.use('/users', userRoutes);
+app.use('/visitante', visitanteRoutes);
 
 app.all("*", (req, res) => {
   return res.send(

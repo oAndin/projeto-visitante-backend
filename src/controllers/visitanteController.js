@@ -42,7 +42,7 @@ async function create(data) {
 
     // bycrypt hash must go for cpf and name
     await DB.execute(
-      `INSERT INTO ${table} (user_name, user_cpf, user_profession, user_gender, user_age, user_cep, user_city, user_distric) VALUES (
+      `INSERT INTO ${table} (user_nome, user_cpf, user_profissao, user_genero, user_idade, user_cidade, user_bairro) VALUES (
         '${data.user.name}',
         '${data.user.cpf}',
         '${data.user.profession}',
@@ -59,4 +59,5 @@ async function create(data) {
 
 module.exports = {
   listAll,
+  create
 };
