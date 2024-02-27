@@ -1,17 +1,29 @@
 const mysql = require("mysql2/promise");
-const { Pool } = require("pg");
 
-async function executeSql(sql) {
-  const connection = await mysql.createConnection({
+const execute = async (sql) => {
+  const config = await mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "1234",
-    database: "visitante_db",
+    database:"museu_db",
     port: 3307,
   });
-  const [result] = await connection.query(sql);
-  return result;
+
+  const [results] = config.query(sql);
+  return results;
 }
+
+// async function executeSql(sql) {
+//   const connection = await mysql.createConnection({
+//     host: "localhost",
+//     user: "root",
+//     password: "1234",
+//     database: "museu_db",
+//     port: 3307,
+//   });
+//   const [result] = await connection.query(sql);
+//   return result;
+// }
 
 // const connectionPg = new Pool({
 //   connectionString:
@@ -21,9 +33,8 @@ async function executeSql(sql) {
 //   },
 // });
 
-const executePG = async (sql) => await connectionPg.query(sql);
+// const executePG = async (sql) => await connectionPg.query(sql);
 
 module.exports = {
-  executeSql,
-  executePG,
+  execute,
 };

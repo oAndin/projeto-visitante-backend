@@ -1,4 +1,4 @@
-const controller = require("../controllers/visitanteController");
+const {graficoPorGenero, create, listAll} = require("../controllers/visitanteController");
 
 const express = require("express");
 
@@ -11,6 +11,10 @@ router.get("/", async (req, res) => {
 router.post("/", async (req,res) => {
   res.send(await controller.create(req.body));
 })
+
+router.get("/grafico-por-genero", async (req, res) => {
+  res.send(await graficoPorGenero());
+});
 
 // router.get("/visitantes", async (req, res) => {
 //   return res.send(await controller.listAll());

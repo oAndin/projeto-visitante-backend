@@ -1,9 +1,14 @@
-const { executePG } = require("../database/index");
+const { execute } = require("../database/index");
 
 async function listAll() {
-  const result = await executePG(`SELECT * FROM visitantes;`);
+  const result = await execute(`SELECT * FROM visitantes;`);
   return result.rows;
 }
+
+const graficoPorGenero = async () => {
+  return await execute(`SELECT COUNT(*) AS TOTAL, visitante_genero as genero FROM visitantes GROUP BY visitante_genero;`)
+}
+
 
 async function create(data) {
   // name, password == cpf, profession, gender, age, cep, city, distric
@@ -59,5 +64,6 @@ async function create(data) {
 
 module.exports = {
   listAll,
-  create
+  create,
+  graficoPorGenero
 };

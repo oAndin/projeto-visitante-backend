@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 
 async function listAll() {
   try {
-    const users = await DB.executeSql(`SELECT * FROM ${table}`);
+    const users = await DB.config(`SELECT * FROM ${table}`);
     return users;
   } catch (error) {
     return { message: error.message };
