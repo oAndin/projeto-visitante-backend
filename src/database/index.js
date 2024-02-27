@@ -9,7 +9,7 @@ const execute = async (sql) => {
     port: 3307,
   });
 
-  const [results] = config.query(sql);
+  const [results] = await config.query(sql);
   return results;
 }
 
