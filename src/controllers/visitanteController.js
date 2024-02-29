@@ -6,9 +6,12 @@ async function listAll() {
 }
 
 const graficoPorGenero = async () => {
-  return await execute(`SELECT COUNT(*) AS TOTAL, visitante_genero as genero FROM visitantes GROUP BY visitante_genero;`)
+  return await execute(`SELECT COUNT(*) AS total, visitante_genero as genero FROM visitantes GROUP BY visitante_genero;`)
 }
 
+const graficoPorCidade = async () => {
+  return await execute(`SELECT COUNT(*) AS total, visitante_cidade as cidade FROM visitantes GROUP BY visitante_cidade;`)
+}
 
 async function create(data) {
   // name, password == cpf, profession, gender, age, cep, city, distric
@@ -65,5 +68,6 @@ async function create(data) {
 module.exports = {
   listAll,
   create,
-  graficoPorGenero
+  graficoPorGenero,
+  graficoPorCidade
 };
