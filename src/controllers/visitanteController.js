@@ -13,6 +13,10 @@ const graficoPorCidade = async () => {
   return await execute(`SELECT COUNT(*) AS total, visitante_cidade as cidade FROM visitantes GROUP BY visitante_cidade;`)
 }
 
+const findMany = async()=> {
+  return Prisma.visitante.findMany();
+}
+
 async function create(data) {
   // name, password == cpf, profession, gender, age, cep, city, distric
   try {
