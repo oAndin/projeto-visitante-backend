@@ -19,6 +19,8 @@ router.post("/", async (req, res) => {
 
 router.get("/grafico-por-genero", async (req, res) => {
   res.send(await graficoPorGenero());
+  // #swagger.tags = ['Visitantes por gênero']
+  // #swagger.summary = "Este endpoint devolve um array de objetos contendo o nome do gênero e o total"
 });
 
 router.get("/grafico-por-cidade", async (req, res) => {

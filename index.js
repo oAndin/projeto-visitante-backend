@@ -6,6 +6,9 @@ const app = express();
 
 const port = 8080;
 
+const swaggerUi = require("swagger-ui-express");
+const swaggerFile = require("./swagger_output.json");
+
 app.use(cors());
 app.use(express.json());
 
@@ -43,7 +46,7 @@ app.get('/test/:name', (req, res) => {
   const name = req.params.name;
   return res.json(`Requisition ${name} received`);
 });
-
+app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 app.use('/users', userRoutes);
 app.use('/visitante', visitanteRoutes);
 
